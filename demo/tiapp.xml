@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>work.addiel.demo</id>
+    <name>demo</name>
+    <version>1.0</version>
+    <publisher>not specified</publisher>
+    <url>unspecified</url>
+    <description>not specified</description>
+    <copyright>not specified</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>false</analytics>
+    <guid>e5a3304a-15a4-4a55-9fff-5e56c4bdc287</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <property name="run-on-main-thread" type="bool">true</property>
+    <ios>
+        <enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>
+        <use-app-thinning>true</use-app-thinning>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <services>
+            <service type="interval" url="boot.js"/>
+        </services>
+        <manifest android:versionCode="1" android:versionName="1.0"
+            package="work.addiel.demo" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25"/>
+            <application android:debuggable="false"
+                android:icon="@drawable/appicon" android:label="demo"
+                android:name="DemoApplication"
+                android:resizeableActivity="true" android:theme="@style/Theme.AppCompat">
+                <activity android:clearTaskOnLaunch="true"
+                    android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density"
+                    android:label="@string/app_name"
+                    android:name=".DemoActivity" android:theme="@style/Theme.Titanium">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                    <receiver android:exported="true" android:name="com.ibilis.booterone.BootReceiver">
+                        <intent-filter>
+                            <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                            <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                        </intent-filter>
+                        <meta-data android:name="bootType" android:value="restart"/>
+                        <meta-data android:name="sendToBack" android:value="true"/>
+                    </receiver>
+                </activity>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density" android:name="org.appcelerator.titanium.TiActivity"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density"
+                    android:name="org.appcelerator.titanium.TiTranslucentActivity" android:theme="@style/Theme.AppCompat.Translucent"/>
+                <activity android:configChanges="screenSize|density" android:name="ti.modules.titanium.ui.android.TiPreferencesActivity"/>
+                <provider
+                    android:authorities="work.addiel.demo.tifileprovider"
+                    android:exported="false"
+                    android:grantUriPermissions="true" android:name="org.appcelerator.titanium.io.TiFileProvider"/>
+            </application>
+            <service android:name="com.ibilis.booterone.KioskService" android:exported="false"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+            <uses-permission android:name="android.permission.REORDER_TASKS"/>
+            <uses-permission android:name="android.permission.GET_TASKS"/>
+            <uses-permission android:name="android.permission.WAKE_LOCK"/>
+        </manifest>
+    </android>
+    <modules>
+        <module platform="iphone">hyperloop</module>
+        <module platform="android">com.ibilis.booterone</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="ipad">false</target>
+        <target device="iphone">true</target>
+    </deployment-targets>
+    <sdk-version>6.2.2.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="ti.android.root.reappears.restart" type="bool">true</property>
+    <property name="appc-app-id" type="string">5b3a5b4c26a3ce13d24efe3e</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">c5jkgbT4eaWThpKgGkFKVyCh5DoRsnta</property>
+    <property name="acs-oauth-key-development" type="string">9qazusJQ7qEyFmt1VhDT2vMWLN4WTGaZ</property>
+    <property name="acs-api-key-development" type="string">qApu1pvfCmdglHpFyYhYuqa0UhOAFhHj</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">EzoHhZMgMW56yTyo9x</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">49uE0tdY1aw9msQmDz3rwb9pDE9WmnOy</property>
+    <property name="acs-oauth-key-production" type="string">YVt8RK90wawfga659GIxM4GsaQyiMPh2</property>
+    <property name="acs-api-key-production" type="string">3F5KPIQ0LrAfFz384jDlYU0JbDPMEiwf</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">mmms3EmLSdUzSFpUGt</property>
+    <property name="appc-org-id" type="string">100011870</property>
+    <property name="appc-creator-user-id" type="string">ae2e51e7-92de-4f1f-881c-c9ab7333aeaf</property>
+</ti:app>

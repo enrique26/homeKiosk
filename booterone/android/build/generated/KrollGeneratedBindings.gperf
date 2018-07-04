@@ -1,0 +1,22 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name BooteroneBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "com.ibilis.booterone.ExampleProxy.h"
+#include "com.ibilis.booterone.BooteroneModule.h"
+
+
+namespace titanium {
+namespace bindings {
+%}
+struct BindEntry;
+%%
+com.ibilis.booterone.BooteroneModule,::com::ibilis::booterone::BooteroneModule::bindProxy,::com::ibilis::booterone::BooteroneModule::dispose
+com.ibilis.booterone.ExampleProxy,::com::ibilis::booterone::booterone::ExampleProxy::bindProxy,::com::ibilis::booterone::booterone::ExampleProxy::dispose
+%%
+}
+}
