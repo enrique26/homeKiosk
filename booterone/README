@@ -45,6 +45,9 @@ BUILDING YOUR MODULE
 Simply run `titanium build --platform <name of platform> --build-type production --dir /path/to/module`.
 You can omit the --dir option if your working directory is in the module's project directory.
 
+modify th build-properties file with your own paths
+this module is for sdk 6.2.2 to rebuild the module use "appc ti sdk select" and choose 6.2.2
+
 
 INSTALL YOUR MODULE
 -------------------
