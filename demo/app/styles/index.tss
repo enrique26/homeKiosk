@@ -1,5 +1,6 @@
 ".container": {
-	backgroundColor:"white"
+	backgroundColor:"white",
+	exitOnClose: false
 }
 
 "Label": {

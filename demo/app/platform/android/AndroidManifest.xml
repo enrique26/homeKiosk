@@ -4,8 +4,9 @@
 	<application android:icon="@drawable/appicon" android:label="demo" android:name="DemoApplication" android:debuggable="false" android:theme="@style/Theme.AppCompat" android:resizeableActivity="true">
 		<activity android:name=".DemoActivity" android:label="@string/app_name" android:theme="@style/Theme.Titanium" android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density" android:clearTaskOnLaunch="true">
 			<intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
-				<category android:name="android.intent.category.LAUNCHER"/>
+				<category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.HOME" />
 			</intent-filter>
 		</activity>
 		<activity android:name="org.appcelerator.titanium.TiActivity" android:configChanges="keyboardHidden|orientation|fontScale|screenSize|smallestScreenSize|screenLayout|density"/>
@@ -21,6 +22,7 @@
             <meta-data android:name="bootType" android:value="restart"/>
             <meta-data android:name="sendToBack" android:value="true"/>
         </receiver>
+	    	<service android:name=".KioskService" android:exported="false"/>
 	</application>
 	<service android:name="com.ibilis.booterone.KioskService" android:exported="false"/>
 	<uses-permission android:name="android.permission.INTERNET"/>
